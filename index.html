@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#17342f" />
+  <meta name="description" content="Atithi Sweets, Bakery, Chaat & Mart — a premium local website demo for New Shimla, BCS Market." />
+  <title>Atithi | Sweets • Bakery • Chaat • Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pine:#17342f;
+      --pine-2:#244b43;
+      --cream:#f7f0e4;
+      --paper:#fffaf3;
+      --clay:#b95f45;
+      --clay-dark:#91462f;
+      --sage:#8c9b7a;
+      --ink:#1c2421;
+      --muted:#66706b;
+      --line:rgba(23,52,47,.12);
+      --shadow:0 18px 50px rgba(24,42,37,.12);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    .topbar{background:var(--pine);color:#fff;padding:9px 0;font-size:12px;letter-spacing:.02em}
+    .topbar .wrap{display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .topbar span:last-child{opacity:.76}
+    .nav{position:sticky;top:0;z-index:30;background:rgba(255,250,243,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-family:'Playfair Display',serif}
+    .brandmark{width:40px;height:40px;border:1.5px solid var(--pine);border-radius:50%;display:grid;place-items:center;font-size:15px;letter-spacing:.06em}
+    .brand strong{font-size:24px;letter-spacing:.02em}
+    .brand small{display:block;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:-2px}
+    .navlinks{display:flex;gap:28px;font-size:14px;color:#43504b}
+    .navlinks a:hover{color:var(--clay-dark)}
+    .navcta{background:var(--clay);color:#fff;padding:11px 17px;border-radius:999px;font-weight:700;font-size:13px}
+    .hero{position:relative;min-height:680px;display:grid;align-items:end;overflow:hidden;background:#243c36}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,34,30,.85) 0%,rgba(13,34,30,.55) 45%,rgba(13,34,30,.12) 100%)}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,25,22,.58),transparent 35%)}
+    .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero .wrap{position:relative;z-index:2;color:#fff;padding:90px 0 70px}
+    .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;opacity:.84;margin-bottom:20px}
+    h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.02;margin:0}
+    h1{font-size:clamp(52px,8vw,102px);font-weight:600;max-width:760px;letter-spacing:-.035em}
+    .hero-copy{max-width:540px;font-size:18px;color:rgba(255,255,255,.82);margin:24px 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:700;border:1px solid rgba(255,255,255,.24)}
+    .btn.primary{background:var(--clay);border-color:var(--clay)}
+    .btn.secondary{background:rgba(255,255,255,.08);color:#fff;backdrop-filter:blur(8px)}
+    .hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:48px;padding-top:18px;border-top:1px solid rgba(255,255,255,.22);font-size:13px;color:rgba(255,255,255,.75)}
+    .section{padding:92px 0}
+    .section.tinted{background:var(--cream)}
+    .kicker{display:inline-flex;align-items:center;gap:9px;color:var(--clay-dark);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;margin-bottom:16px}
+    .kicker::before{content:"";width:25px;height:1px;background:currentColor}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .section-head h2{font-size:clamp(38px,5vw,64px);max-width:680px}
+    .section-head p{max-width:360px;color:var(--muted);margin:0;font-size:15px}
+    .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .cat{position:relative;min-height:350px;border-radius:var(--radius);overflow:hidden;display:flex;align-items:end;padding:24px;color:#fff}
+    .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .cat:hover img{transform:scale(1.045)}
+    .cat::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,19,17,.72),rgba(8,19,17,.02) 70%)}
+    .cat div{position:relative;z-index:2}
+    .cat b{font-family:'Playfair Display',serif;font-size:30px;font-weight:600}
+    .cat span{display:block;margin-top:6px;font-size:12px;color:rgba(255,255,255,.75)}
+    .feature-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+    .feature{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 28px rgba(24,42,37,.05)}
+    .feature .photo{height:350px;overflow:hidden}
+    .feature .photo img{width:100%;height:100%;object-fit:cover}
+    .feature .body{padding:28px}
+    .feature h3{font-size:32px;margin-bottom:10px}
+    .feature p{color:var(--muted);margin:0 0 18px}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:11px;padding:7px 10px;border-radius:999px;background:var(--cream);color:var(--pine)}
+    .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .story-photo{height:600px;border-radius:32px;overflow:hidden;position:relative}
+    .story-photo img{width:100%;height:100%;object-fit:cover}
+    .story-stamp{position:absolute;left:22px;bottom:22px;background:rgba(255,250,243,.94);padding:16px 18px;border-radius:16px;max-width:210px;box-shadow:var(--shadow)}
+    .story-stamp b{display:block;font-family:'Playfair Display',serif;font-size:24px;color:var(--pine)}
+    .story h2{font-size:clamp(42px,5vw,68px);margin-bottom:22px}
+    .story p{color:var(--muted);font-size:17px;max-width:600px}
+    .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+    .note{padding:20px;border-top:2px solid var(--pine);background:#fff;border-radius:0 0 16px 16px}
+    .note b{display:block;margin-bottom:4px}
+    .note span{font-size:13px;color:var(--muted)}
+    .occasion{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .occasion-card{min-height:320px;border-radius:var(--radius);padding:34px;display:flex;flex-direction:column;justify-content:end;position:relative;overflow:hidden;color:#fff}
+    .occasion-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .occasion-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(23,30,27,.76),rgba(23,30,27,.06))}
+    .occasion-card > *{position:relative;z-index:2}
+    .occasion-card h3{font-size:40px;margin-bottom:8px}
+    .occasion-card p{margin:0;max-width:420px;color:rgba(255,255,255,.8)}
+    .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    blockquote{margin:0;padding:26px;background:#fff;border:1px solid var(--line);border-radius:20px;font-family:'Playfair Display',serif;font-size:21px;line-height:1.35}
+    blockquote footer{font:600 11px 'DM Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:20px}
+    .visit{background:var(--pine);color:#fff;border-radius:34px;padding:60px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;overflow:hidden;position:relative}
+    .visit::before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-140px;top:-160px}
+    .visit h2{font-size:clamp(46px,5vw,72px);position:relative}
+    .visit p{color:rgba(255,255,255,.68);max-width:510px;position:relative}
+    .visit-data{display:grid;gap:11px;position:relative}
+    .info{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:18px;font-size:14px}
+    .info span:first-child{color:rgba(255,255,255,.6)}
+    .footer{padding:55px 0 35px}
+    .footer-top{display:flex;justify-content:space-between;gap:30px;padding-bottom:35px;border-bottom:1px solid var(--line)}
+    .footer p{color:var(--muted);max-width:390px}
+    .footer-links{display:flex;gap:20px;align-items:flex-start;font-size:13px}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:22px;font-size:11px;color:var(--muted)}
+    .floating{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--clay);color:#fff;padding:13px 17px;border-radius:999px;font-size:12px;font-weight:800;box-shadow:var(--shadow)}
+    @media(max-width:900px){
+      .navlinks{display:none}.category-grid{grid-template-columns:repeat(2,1fr)}.feature-grid,.story,.visit{grid-template-columns:1fr}.story-photo{height:470px}.quote-grid{grid-template-columns:1fr}.occasion{grid-template-columns:1fr}.notes{grid-template-columns:1fr}.visit{padding:38px}.section{padding:72px 0}
+    }
+    @media(max-width:560px){
+      .wrap{width:min(100% - 28px,1180px)}.topbar span:last-child{display:none}.navin{height:68px}.hero{min-height:650px}.hero .wrap{padding:80px 0 44px}h1{font-size:56px}.hero-copy{font-size:16px}.hero-meta{gap:14px}.category-grid{grid-template-columns:1fr}.cat{min-height:300px}.section-head{display:block}.section-head p{margin-top:14px}.feature .photo{height:260px}.story-photo{height:390px}.visit{border-radius:24px}.footer-top,.footer-bottom{display:block}.footer-links{margin-top:22px;flex-wrap:wrap}.floating{right:12px;bottom:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><span>ATITHI • NEW SHIMLA</span><span>Open daily · 9:00 AM – 9:00 PM</span></div></div>
+  <header class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#top" aria-label="Atithi home"><span class="brandmark">A</span><span><strong>Atithi</strong><small>Sweets · Bakery · Chaat · Mart</small></span></a>
+      <nav class="navlinks" aria-label="Primary navigation"><a href="#menu">Menu</a><a href="#grocery">Grocery</a><a href="#story">About</a><a href="#occasions">Occasions</a><a href="#visit">Visit</a></nav>
+      <a class="navcta" href="tel:+911773130381">Call to Order</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="heroimg" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=2000&q=85" alt="Celebration cake" />
+      <div class="wrap">
+        <div class="eyebrow">A local favourite in BCS, New Shimla</div>
+        <h1>Sweet moments.<br>Made nearby.</h1>
+        <p class="hero-copy">Fresh sweets, bakery favourites and Indian chaat, all from one familiar stop in New Shimla.</p>
+        <div class="actions"><a class="btn primary" href="#menu">Explore favourites</a><a class="btn secondary" href="#visit">Find Atithi</a></div>
+        <div class="hero-meta"><span>📍 BCS Market, New Shimla</span><span>☎ 0177 313 0381</span><span>Daily · 9 AM – 9 PM</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">The Atithi counter</div><h2>Four cravings.<br>One stop.</h2></div><p>A simple menu-first experience that lets visitors jump straight to what they came for.</p></div>
+        <div class="category-grid">
+          <a class="cat" href="#favourites"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=1200&q=82" alt="Indian sweets" /><div><b>Sweets</b><span>Traditional favourites & gifting picks</span></div></a>
+          <a class="cat" href="#favourites"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=82" alt="Fresh bakery" /><div><b>Bakery</b><span>Cakes, breads & everyday bakes</span></div></a>
+          <a class="cat" href="#favourites"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=82" alt="Indian chaat" /><div><b>Chaat</b><span>Gol gappe, papdi chaat & more</span></div></a>
+          <a class="cat" href="#visit"><img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1200&q=82" alt="Grocery store shelves" /><div><b>Grocery & Mart</b><span>Everyday essentials, snacks & home needs</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="favourites">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">What the neighbourhood comes for</div><h2>Built around the classics.</h2></div><p>Keep the demo focused on categories and moments rather than long lists of prices that may change.</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="photo"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1600&q=85" alt="Assorted sweets and desserts" /></div><div class="body"><h3>Sweet counter</h3><p>From celebration boxes to the little treat you pick up on the way home, the sweets section gets a full visual spotlight.</p><div class="tagrow"><span class="tag">Indian sweets</span><span class="tag">Gift boxes</span><span class="tag">Celebrations</span></div></div></article>
+          <article class="feature"><div class="photo"><img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=1300&q=85" alt="Cake and bakery dessert" /></div><div class="body"><h3>Bakery favourites</h3><p>Cakes and everyday bakery picks deserve a clean, editorial product presentation rather than a crowded menu grid.</p><div class="tagrow"><span class="tag">Cakes</span><span class="tag">Fresh bakes</span><span class="tag">Takeaway</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="grocery">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Everyday essentials</div><h2>Your quick grocery stop.</h2></div><p>Atithi is more than sweets and snacks. This section gives the mart side its own clear identity, while keeping the same premium visual language.</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="photo"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=85" alt="Fresh grocery produce" /></div><div class="body"><h3>Daily groceries</h3><p>Build a practical browse path for staples and everyday shopping, with categories that can be edited later from the admin panel.</p><div class="tagrow"><span class="tag">Daily essentials</span><span class="tag">Packaged foods</span><span class="tag">Breakfast</span></div></div></article>
+          <article class="feature"><div class="photo"><img src="https://images.unsplash.com/photo-1601598851547-4302969d0aaf?auto=format&fit=crop&w=1300&q=85" alt="Grocery and household products" /></div><div class="body"><h3>Mart essentials</h3><p>Give shoppers a simple way to find snacks, beverages, household items and personal-care basics without turning the website into a cluttered catalogue.</p><div class="tagrow"><span class="tag">Snacks & drinks</span><span class="tag">Home essentials</span><span class="tag">Personal care</span></div></div></article>
+        </div>
+        <div class="notes" style="margin-top:22px">
+          <div class="note"><b>Shop categories</b><span>Daily essentials · Snacks · Beverages</span></div>
+          <div class="note"><b>Household</b><span>Cleaning · Kitchen · Useful home products</span></div>
+          <div class="note"><b>Flexible catalogue</b><span>Products and prices can be updated as stock changes.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="wrap story">
+        <div class="story-photo"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1400&q=85" alt="Indian food and shared table" /><div class="story-stamp"><b>Made for quick visits.</b><span>Sweet box, snack break, birthday pickup or a last-minute stop.</span></div></div>
+        <div><div class="kicker">About Atithi</div><h2>The neighbourhood stop, made easier to discover.</h2><p>Atithi Sweets Bakery Chaat & Mart sits at BCS Market in New Shimla, close to Bishop Cotton School. The website concept keeps the brand warm and local, with a clear route from craving → product → visit.</p><div class="notes"><div class="note"><b>Local</b><span>BCS, New Shimla</span></div><div class="note"><b>Daily</b><span>9 AM – 9 PM</span></div><div class="note"><b>Easy</b><span>Call before a special pickup</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="occasions">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Occasions</div><h2>Make the visit<br>feel like a moment.</h2></div><p>Dedicated landing blocks for birthdays, festive gifting and quick snack runs make the website commercially useful without feeling like an online-ordering app.</p></div>
+        <div class="occasion">
+          <article class="occasion-card"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1400&q=85" alt="Birthday cake" /><h3>Birthdays & cakes</h3><p>A focused path from cake discovery to a quick phone enquiry.</p></article>
+          <article class="occasion-card"><img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1400&q=85" alt="Indian sweets for gifting" /><h3>Festive gifting</h3><p>Showcase sweets and gift-ready selections when the season arrives.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Neighbourhood notes</div><h2>Warm, useful, human.</h2></div><p>Testimonials are a content block. They should be replaced with verified customer reviews before launch.</p></div>
+        <div class="quote-grid">
+          <blockquote>“A convenient local stop for sweets and bakery items.”<footer>Customer review · public listing</footer></blockquote>
+          <blockquote>“Known for quick bites, sweets and chaat around BCS.”<footer>Customer review · public listing</footer></blockquote>
+          <blockquote>“The website can make the menu and location much easier to explore.”<footer>Demo concept · UX direction</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="wrap">
+        <div class="visit">
+          <div><div class="kicker" style="color:#e5a48e">Come by</div><h2>See you at BCS.</h2><p>Keep the final CTA uncomplicated: location, opening hours and one-tap calling. Add map directions when the final website is connected to the business listing.</p><div class="actions"><a class="btn primary" href="tel:+911773130381">Call 0177 313 0381</a><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Atithi+Sweets+Bakery+Chaat+%26+Mart+BCS+New+Shimla" target="_blank" rel="noopener">Open in Maps</a></div></div>
+          <div class="visit-data"><div class="info"><span>Address</span><b>Chowk, B.C.S., BCS Market, New Shimla</b></div><div class="info"><span>City</span><b>Shimla, Himachal Pradesh 171009</b></div><div class="info"><span>Hours</span><b>Every day · 9:00 AM – 9:00 PM</b></div><div class="info"><span>Type</span><b>Sweets · Bakery · Chaat · Mart</b></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><div class="footer-top"><div><a class="brand" href="#top"><span class="brandmark">A</span><span><strong>Atithi</strong><small>Sweets · Bakery · Chaat · Mart</small></span></a><p>A premium website direction for a familiar New Shimla neighbourhood favourite.</p></div><div class="footer-links"><a href="#menu">Menu</a><a href="#story">About</a><a href="#occasions">Occasions</a><a href="#visit">Visit</a></div></div><div class="footer-bottom"><span>© Atithi Sweets Bakery Chaat & Mart</span><span>Website concept by AJAYNXT</span></div></div>
+  </footer>
+  <a class="floating" href="tel:+911773130381">☎ Call Atithi</a>
+</body>
+</html>
